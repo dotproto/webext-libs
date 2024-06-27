@@ -1,0 +1,1 @@
+https://addons-dev.allizom.org/en-US/firefox/addon/extension-test-2024-01-19-a/
