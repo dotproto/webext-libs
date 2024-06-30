@@ -1,0 +1,14 @@
+{
+  "name": "Store Library Demo",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "page": "background.html",
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {}
+}
