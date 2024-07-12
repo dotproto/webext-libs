@@ -35,23 +35,3 @@
 export function bond(instance, methodName) {
   instance[methodName] = Reflect.getPrototypeOf(instance)[methodName].bind(instance);
 }
-
-// This version preserves the default behavior of dynamically looking up the
-// method on the prototype and calling it against the current instance.
-export function hitch(instance, methodName) {
-	const proto = Object.getPrototypeOf(instance);
-
-  const name = proto[methodName].name ?? methodName;
- 	const tmp = {
-    [name]() {
-      return Object.getPrototypeOf(instance)[methodName].call(instance, ...arguments)
-    }
-	}
-	instance[methodName] = tmp[methodName];
-}
-
-function getNames(obj, prop) {
-  console.log(`desc`, Object.getOwnPropertyDescriptor(obj, prop));
-  console.log(`desc val name ${Object.getOwnPropertyDescriptor(obj, prop).value.name}`);
-  console.log(`desc for desc name`, Object.getOwnPropertyDescriptor(obj[prop], "name"));
-}
